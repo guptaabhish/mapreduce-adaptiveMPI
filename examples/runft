@@ -1,0 +1,2 @@
+#./charmrun ./rmat 10 500 0.3 0.3 0.2 0.2 0.4 12345 +p2 +vp2 +ftc_disk +balancer DummyLB  +killFile kill_01.txt ++verbose 
+./charmrun ./rmat 11 2000 0.3 0.3 0.2 0.2 0.4 12345 +p2 +vp2 +tcharm_stacksize 3276800 +ftc_disk +balancer DummyLB +isomalloc_sync +killFile kill_01.txt 

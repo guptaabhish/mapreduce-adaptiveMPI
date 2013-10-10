@@ -1,0 +1,11 @@
+# MPI-based makefile using mpic++ and mpicc
+A=../src/Obj_ampicc/
+CC =	$(HOME)/charms/charm/net-linux-x86_64/bin/ampicc
+CPP =   $(HOME)/charms/charm/net-linux-x86_64/bin/ampiCC
+CCFLAGS =	-g -O0 -tlsglobal -I../src 
+LINK =	$(CPP)
+LINKFLAGS =	-g -O0 -tlsglobal -memory isomalloc -module CommonLBs 
+USRLIB =	-L../src/ -lmrmpi_ampicc
+SYSLIB =
+
+include Makefile.common

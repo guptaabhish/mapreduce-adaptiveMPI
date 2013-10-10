@@ -1,0 +1,1 @@
+./charmrun ./wordfreq +p4 +vp8 +tcharm_stacksize 3276800  .  ++verbose
