@@ -1398,9 +1398,11 @@ void MapReduce::map_file_wrapper(int imap, KeyValue *kv)
   // terminate string with NULL
 
   char *str = (char *) memory->smalloc(readsize+1,"MR:fileread");
-  FILE *fp = fopen(filemap.filename[filemap.whichfile[imap]],"rb");
-  fseek(fp,readstart,SEEK_SET);
-  fread(str,1,readsize,fp);
+ // FILE *fp = fopen(filemap.filename[filemap.whichfile[imap]],"rb");
+  int fp = open(filemap.filename[filemap.whichfile[imap]],O_RDONLY, 0);
+//  fseek(fp,readstart,SEEK_SET);
+ // fread(str,1,readsize,fp);
+  AMPI_AsyncRead(str,readsize,fp, readstart, comm);
   str[readsize] = '\0';
   fclose(fp);
 
